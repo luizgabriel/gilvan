@@ -1,0 +1,13 @@
+{
+    "name": "luizgabriel/gilvan",
+    "description": "A Very Simple Framework",
+    "require": {
+        "symfony/class-loader": "2.1.*"
+    },
+    "authors": [
+        {
+            "name": "luizgabriel",
+            "email": "luiz.gabriel.cristo@hotmail.com"
+        }
+    ]
+}
