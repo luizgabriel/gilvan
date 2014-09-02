@@ -2,12 +2,18 @@
     "name": "luizgabriel/gilvan",
     "description": "A Very Simple Framework",
     "require": {
-        "symfony/class-loader": "2.1.*"
+        "symfony/class-loader": "2.1.*",
+        "symfony/http-foundation": "2.1.*",
+        "symfony/Routing": "2.1.*",
+        "symfony/debug": "2.5.*"
     },
     "authors": [
         {
             "name": "luizgabriel",
             "email": "luiz.gabriel.cristo@hotmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "classmap": ["app/", "lib/"]
+    }
 }
