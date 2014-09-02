@@ -5,9 +5,9 @@
  * Here where everething starts
  */
 
-use Gilvan\Bootstrap;
+use Gilvan\App;
 
 require_once __DIR__.'/init.php';
 
-$app = new Bootstrap;
+$app = new App;
 $app->run();

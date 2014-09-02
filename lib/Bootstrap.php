@@ -7,7 +7,9 @@
 
 namespace Gilvan;
 
-class Bootstrap
+use Gilvan\Router;
+
+class App
 {
 	public function __construct() { }
 
@@ -16,17 +18,20 @@ class Bootstrap
 		global $request;
 		global $reponse;
 
+		/**
+		 * Adds All Routes
+		 */
 		include "app/routes.php";
 
-		/*$path = $request->getPathInfo();
-		if (isset($map[$path])) {
-		    require $map[$path];
-		} else {
-		    $response->setStatusCode(404);
-		    $response->setContent('Not Found');
+		try {
+
+			return Router::match();
+
+		} catch(ResourceNotFoundException $e){
+
+			throw new ResourceNotFoundException($e->getMessage(), 1);
+
 		}
-		 
-		$response->send();*/
 
 	}
 }

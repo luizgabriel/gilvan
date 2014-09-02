@@ -2,9 +2,18 @@
 
 /**
  * All Routes should be written here
- * Starts by: Router::controller('hello', 'BaseController');
+ * ---------------------------------------------------
+ *
+ * Router::controller('/', function(){
+ * 		return 'Hello World!';
+ * });
+ *
  */
 
 use Gilvan\Router;
 
-Router::controller('hello', 'BaseController');
+Router::controller('/', function(){
+	return 'Hello World!';
+});
+
+Router::controller('/hello', 'BaseController');
