@@ -5,7 +5,8 @@
         "symfony/class-loader": "2.1.*",
         "symfony/http-foundation": "2.1.*",
         "symfony/Routing": "2.1.*",
-        "symfony/debug": "2.5.*"
+        "symfony/debug": "2.5.*",
+        "symfony/filesystem": "2.1.*"
     },
     "authors": [
         {

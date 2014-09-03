@@ -25,7 +25,9 @@ class App
 
 		try {
 
-			return Router::match();
+			$params = Router::match();
+
+			return Router::response($params)->send();
 
 		} catch(ResourceNotFoundException $e){
 

@@ -12,6 +12,7 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Gilvan\Controller;
 
 class Router
@@ -56,7 +57,7 @@ class Router
 		}else
 			$parameters = $matcher->match($request->getPathInfo());
 
-		return self::callController($parameters);
+		return $parameters;
 	}
 
 	private static function requestTree()
@@ -65,20 +66,22 @@ class Router
 		return array_filter(explode('/', $request->getPathInfo()));
 	}
 
-	public static function callController($parameters)
+	public static function response($parameters)
 	{
 		$controller = $parameters['controller'];
 
 		$request_tree = self::requestTree();
 
 		if(is_callable($controller))
-			return print call_user_func($controller);
+			$view = call_user_func($controller);
 		else {
 			if(count($request_tree) > 1)
-				return (new $controller)->$request_tree[2]();
+				$view = (new $controller)->$request_tree[2]();
 			else
-				return (new $controller)->index();
+				$view = (new $controller)->index();
 		}
+
+		return new Response($view);
 	}
 
 	public static function toRouteName($var)
