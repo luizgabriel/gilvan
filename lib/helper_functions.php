@@ -13,5 +13,12 @@ function e( $var )
 
 function asset( $path )
 {
-	return $_SERVER['SERVER_NAME'] . '/public/' . $path;
+	return server() . '/public/' . $path;
+}
+
+function server()
+{
+	$path = ($_SERVER['SERVER_PORT'])? $_SERVER['SERVER_NAME'] .":" . $_SERVER['SERVER_PORT'] : $_SERVER['SERVER_NAME'];
+	$path = 'http'.(empty($_SERVER['HTTPS'])?'':'s'). "://" . $path;
+	return $path;
 }

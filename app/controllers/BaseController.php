@@ -14,6 +14,7 @@ class BaseController extends Controller
 	}
 
 	public function test() {
-		return View::make('test.view');
+		$msg = 'Teste!';
+		return View::make('test.view', compact('msg'));
 	}
 }
