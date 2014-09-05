@@ -12,8 +12,4 @@
 
 use Gilvan\Router;
 
-Router::controller('/', function(){
-	return 'Hello World!';
-});
-
-Router::controller('/hello', 'BaseController');
+Router::controller('/', 'BaseController');
