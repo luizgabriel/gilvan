@@ -10,6 +10,7 @@ class View
 {
 	public $regions = [];
 	protected $template_file = NULL;
+	private $extension = NULL;
 	private $cur_region_render;
 
 	public function __construct($template_path)
@@ -37,12 +38,12 @@ class View
 
 			$args['_view'] = $this;
 
-			if(!is_null($args))
-				extract($args);
-			
-		    ob_start();
-		    require $this->template_file;
-		    $html = ob_get_clean();
+			$html = $this->getFileContent($this->template_file, $args)
+
+		    if(!is_null($this->extension))
+		    {
+		    	$html .= $this->getFileContent($this->extension, $args);
+		    }
 
 		    return $html;
 
@@ -50,18 +51,33 @@ class View
 			throw new \Exception("No view found at \"$template_file\"", 1);
 	}
 
-	public function _region($name)
+	private function getFileContent($file, $args = array())
+	{
+		if(!is_null($args))
+			extract($args);
+
+	    ob_start();
+	    require $file;
+	    $html = ob_get_clean();
+	}
+
+	public function region($name)
 	{
 		return print (isset($this->regions[$name]))? $this->regions[$name] : NULL;
 	}
 
-	public function _regionStart($region)
+	public function extend($template_path)
+	{
+		$this->extension = self::translatePath($template_path);
+	}
+
+	public function regionStart($region)
 	{
 		$this->cur_region_render = $region;
 		ob_start();
 	}
 
-	public function _regionEnd()
+	public function regionEnd()
 	{
 		$html = ob_get_clean();
 		if(!in_array($this->cur_region_render, array_keys($this->regions)))
