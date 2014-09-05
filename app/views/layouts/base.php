@@ -37,9 +37,9 @@
 
 					<!-- Social Icons -->
 					<ul class="icons">
-						<li><a href="http://facebook.com/luiz.gabriel.cristo" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="http://facebook.com/luizgabriel" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="mailto:luiz.gabriel.cristo@hotmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="http://facebook.com/luiz.gabriel.cristo" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="http://github.com/luizgabriel" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:luiz.gabriel.cristo@hotmail.com" target="_blank" class="icon fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 				
 				</div>
