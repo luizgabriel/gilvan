@@ -35,7 +35,7 @@ class View
 		$this->template_file = ROOT.DS."app".DS."views".DS.$this->template_file;
 
 		if(File::exists($this->template_file)){
-			
+
 			$args['_view'] = $this;
 			$html = $this->getFileContent($this->template_file, $args);
 
@@ -58,6 +58,8 @@ class View
 	    ob_start();
 	    require $file;
 	    $html = ob_get_clean();
+	    
+	    return $html;
 	}
 
 	public function region($name)
