@@ -37,11 +37,11 @@ class View
 		if(File::exists($this->template_file)){
 
 			$args['_view'] = $this;
-			$html = $this->getFileContent($this->template_file, $args);
+			$html = $this->renderFileContent($this->template_file, $args);
 
 		    if(!is_null($this->extension))
 		    {
-		    	$html .= $this->getFileContent($this->extension, $args);
+		    	$html .= $this->renderFileContent($this->extension, $args);
 		    }
 
 		    return $html;
@@ -50,7 +50,7 @@ class View
 			throw new \Exception("No view found at \"$template_file\"", 1);
 	}
 
-	private function getFileContent($file, $args = array())
+	private function renderFileContent($file, $args = array())
 	{
 		if(!is_null($args))
 			extract($args);
@@ -58,7 +58,7 @@ class View
 	    ob_start();
 	    require $file;
 	    $html = ob_get_clean();
-	    
+
 	    return $html;
 	}
 
