@@ -8,12 +8,12 @@ function dd($var)
 
 function e( $var )
 {
-	 echo htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+	echo htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
 }
 
 function asset( $path )
 {
-	return server() . '/public/' . $path;
+	echo server() . '/public/' . $path;
 }
 
 function server()
