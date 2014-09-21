@@ -5,7 +5,7 @@
  */
 
 use Gilvan\Controller;
-use Gilvan\View;
+use Gilvan\View\View;
 
 class BaseController extends Controller 
 {
