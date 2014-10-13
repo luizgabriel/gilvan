@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Starts all the applications
+ * Starts all applications
  * @author Luiz Gabriel
  */
 
