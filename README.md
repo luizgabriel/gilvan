@@ -1,4 +1,4 @@
-Gilvan
+Gilvan Web Framework
 ======
 
 A Very Simple Framework
